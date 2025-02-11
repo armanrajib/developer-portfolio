@@ -1,17 +1,25 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 
 import './globals.css'
+import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
+  variable: '--font-sans',
   subsets: ['latin']
 })
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+  variable: '--font-mono',
   subsets: ['latin']
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-serif'
 })
 
 export const metadata: Metadata = {
@@ -27,7 +35,12 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          'flex min-h-screen flex-col font-sans antialiased',
+          geistSans.variable,
+          geistMono.variable,
+          playfair.variable
+        )}
       >
         <ThemeProvider
           attribute='class'
@@ -35,7 +48,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Header />
+          <main className='grow'>{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 import tailwindcssAnimate from 'tailwindcss-animate'
+import tailwindcssTypography from '@tailwindcss/typography'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 export default {
   darkMode: ['class'],
@@ -9,7 +11,19 @@ export default {
     './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1440px'
+      }
+    },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        serif: ['var(--font-serif)', ...fontFamily.serif],
+        mono: ['var(--font-mono)', ...fontFamily.mono]
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -59,5 +73,5 @@ export default {
       }
     }
   },
-  plugins: [tailwindcssAnimate]
+  plugins: [tailwindcssAnimate, tailwindcssTypography]
 } satisfies Config
