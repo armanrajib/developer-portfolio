@@ -69,4 +69,8 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  .title {
+    @apply decoration-border/75 font-serif text-3xl font-bold underline decoration-2 underline-offset-8;
+  }
 }
