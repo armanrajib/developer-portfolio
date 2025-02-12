@@ -79,7 +79,7 @@ const navigation = [
 export default function Footer() {
   return (
     <footer className='py-8'>
-      <div className='container max-w-7xl'>
+      <div className='container max-w-6xl'>
         <div className='md:flex md:items-center md:justify-between'>
           <div className='flex justify-center space-x-6 md:order-2'>
             {navigation.map(item => (
@@ -96,7 +96,7 @@ export default function Footer() {
             ))}
           </div>
           <div className='mt-8 md:order-1 md:mt-0'>
-            <p className='text-muted-foreground text-center text-xs leading-5'>
+            <p className='text-center text-xs leading-5 text-muted-foreground'>
               &copy; {new Date().getFullYear()} - Arman Hossain Rajib - All
               rights reserved.
             </p>
