@@ -1,11 +1,14 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 
 import { ModeToggle } from '@/components/theme-toggle'
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
+  const { theme } = useTheme()
   const pathname = usePathname()
   const active = 'text-foreground font-bold border-b-2 border-foreground py-0.5'
 
@@ -14,7 +17,12 @@ export default function Header() {
       <nav className='container flex max-w-6xl items-center justify-between'>
         <div>
           <Link href='/' className='font-serif text-2xl font-bold'>
-            AHR
+            <Image
+              src={`/logos/logo_${theme === 'light' ? '1' : '2'}.png`}
+              alt='Arman Hossain Rajib'
+              height={40}
+              width={40}
+            />
           </Link>
         </div>
 
