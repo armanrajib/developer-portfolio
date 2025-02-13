@@ -71,6 +71,28 @@ body {
   }
 
   .title {
-    @apply decoration-border/75 font-serif text-3xl font-bold underline decoration-2 underline-offset-8;
+    @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8;
+  }
+
+  /* Width of the scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track (background) */
+  ::-webkit-scrollbar-track {
+    background: bg-background;
+    border-radius: 10px;
+  }
+
+  /* Handle (draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground));
   }
 }
