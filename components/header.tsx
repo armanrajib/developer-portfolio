@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -8,9 +9,18 @@ import { ModeToggle } from '@/components/theme-toggle'
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
+  const [mounted, setMounted] = useState(false)
+
+  // Prevent hydration mismatch by ensuring the component is mounted
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const { theme } = useTheme()
   const pathname = usePathname()
   const active = 'text-foreground font-bold border-b-2 border-foreground py-0.5'
+
+  if (!mounted) return null // Avoid rendering on the server
 
   return (
     <header className='fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm'>
