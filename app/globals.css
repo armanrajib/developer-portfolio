@@ -74,24 +74,17 @@ body {
     @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8;
   }
 
-  /* Width of the scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
-
-  /* Track (background) */
   ::-webkit-scrollbar-track {
     background: bg-background;
-    border-radius: 10px;
+    border-radius: 8px;
   }
-
-  /* Handle (draggable part) */
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--muted-foreground));
-    border-radius: 10px;
+    border-radius: 8px;
   }
-
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--foreground));
   }
